@@ -1,0 +1,23 @@
+
+/* Class = "UIButton"; normalTitle = "Quit"; ObjectID = "9tT-Al-PME"; */
+"9tT-Al-PME.normalTitle" = "Выйти";
+
+/* Class = "UINavigationItem"; title = "ToDo items"; ObjectID = "AuZ-x4-1l2"; */
+"AuZ-x4-1l2.title" = "Заметки";
+
+/* Class = "UILabel"; text = "textTitle"; ObjectID = "Z7d-ob-yzm"; */
+"Z7d-ob-yzm.text" = "textTitle";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "d38-H8-7gL"; */
+"d38-H8-7gL.normalTitle" = "Начать";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "hKt-l4-Q4I"; */
+"hKt-l4-Q4I.normalTitle" = "Сохранить";
+
+/* Class = "UITextView"; text = "Type something here..."; ObjectID = "lFl-jt-U0h"; */
+"lFl-jt-U0h.text" = "Напишите что-нибудь здесь...";
+
+/* Class = "UIButton"; normalTitle = "Language"; ObjectID = "s9v-O3-EH1"; */
+"s9v-O3-EH1.normalTitle" = "Выбрать язык";
+
+

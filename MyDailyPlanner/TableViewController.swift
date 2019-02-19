@@ -5,32 +5,61 @@
 //  Created by Ivan Ignatkov on 2019-01-11.
 //  Copyright © 2019 TechCompetence. All rights reserved.
 //
-
+import Foundation
 import UIKit
 
 class TableViewController: UITableViewController {
+    
+   
+  
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.tableFooterView = UIView()
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+  
     
     
     
     @IBAction func pushEditAction(_ sender: Any) {
         tableView.setEditing(!tableView.isEditing , animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.tableView.reloadData()
+        }
+        
     }
     
     @IBAction func pushAddAction(_ sender: Any) {
-       let alertController = UIAlertController(title: "Create new item", message: nil, preferredStyle: .alert)
+        
+        let alertTitle = NSLocalizedString("Create new item", comment: "")
+        let alertText = NSLocalizedString("New item name", comment: "")
+        let alertTitle2 = NSLocalizedString("Cancel", comment: "")
+        let alertTitle3 = NSLocalizedString("Create", comment: "")
+        
+        
+       let alertController = UIAlertController(title: alertTitle, message: nil, preferredStyle: .alert)
         alertController.addTextField { (textField) in
-            textField.placeholder = "New item name "
+            textField.placeholder = alertText
         }
         
-       let alertAction1 = UIAlertAction(title: "Cancel", style: .default) { (alert) in
-        
-        
-        }
-        let alertAction2 = UIAlertAction(title: "Create", style: .cancel) { (alert) in
+       
+    
+        let alertAction2 = UIAlertAction(title: alertTitle3, style: .cancel) { (alert) in
             let newItem = alertController.textFields![0].text
             addItem(nameItem: newItem!)
             self.tableView.reloadData()
             // add new text
+        }
+        
+        let alertAction1 = UIAlertAction(title: alertTitle2, style: .destructive) { (alert) in
+            
         }
     
         alertController.addAction(alertAction1)
@@ -39,15 +68,7 @@ class TableViewController: UITableViewController {
        present(alertController, animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+    
 
     // MARK: - Table view data source
 
@@ -63,18 +84,36 @@ class TableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell") as? MyCell else { return UITableViewCell() }
         
         let currentItem = ToDoItems[indexPath.row]
-        cell.textLabel?.text = currentItem["Name"] as? String
+        ///texting
+        
+        cell.nameLbl.text = currentItem["Name"] as? String
+        
+
+        ///
         
         if (currentItem["isCompleted"] as? Bool) == true {
-            cell.imageView?.image = #imageLiteral(resourceName: "check")
+            cell.statusImg?.image = #imageLiteral(resourceName: "check")
         } else {
-            cell.imageView?.image = #imageLiteral(resourceName: "uncheck")
+            cell.statusImg?.image = #imageLiteral(resourceName: "uncheck")
         }
-        // Configure the cell...
+        
+        if tableView.isEditing {
+             cell.nameLbl.alpha = 0.4
+             cell.statusImg.alpha = 0.4
 
+
+        }else{
+            cell.nameLbl.alpha = 1
+            cell.statusImg.alpha = 1
+
+
+        }
+        cell.nextBtn.tag = indexPath.row
+        cell.nextBtn.addTarget(self, action: #selector(self.segue(sender:)), for: UIControl.Event.touchUpInside)
+        
         return cell
     }
     
@@ -82,7 +121,6 @@ class TableViewController: UITableViewController {
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
     
@@ -96,18 +134,30 @@ class TableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true )
         
+        let cell = tableView.cellForRow(at: indexPath) as! MyCell
         
-        if changeState(at: indexPath.row ) {
-            tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "check")
-        } else {
-             tableView.cellForRow(at: indexPath)?.imageView?.image = #imageLiteral(resourceName: "uncheck")
+        
+        if tableView.isEditing {
+            cell.nameLbl.alpha = 0.4
+            cell.statusImg.alpha = 0.4
+            
+            
+        }else{
+            cell.nameLbl.alpha = 1
+            cell.statusImg.alpha = 1
+            if changeState(at: indexPath.row ) {
+                cell.statusImg.image = #imageLiteral(resourceName: "check")
+            } else {
+                cell.statusImg.image = #imageLiteral(resourceName: "uncheck")
+            }
+            
         }
         
     }
@@ -119,23 +169,29 @@ class TableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    @objc func segue(sender: UIButton) {
+        self.performSegue(withIdentifier: "goNextPage", sender: sender)
+        
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        let btnNext = sender as! UIButton
+        
+        let index = btnNext.tag
+        let currentItem = ToDoItems[index]
+        let destinationVC = segue.destination as! TextViewController
+    
+        
+        if segue.identifier == "goNextPage" {
+            
+            let nameTxt = currentItem["Name"] as? String ?? ""
+            var descriptionTxt = currentItem["Description"] as? String ?? ""
+            if descriptionTxt == "" {
+                descriptionTxt = "Type something here..."
+            }
+            destinationVC.initData(name: nameTxt, text: descriptionTxt, item: index)
+        }
     }
-    */
 
 }

@@ -7,13 +7,19 @@
 //
 
 import Foundation
+import UIKit
 
-var ToDoItems: [[String: Any]] = [["Name": "Позвонить маме", "isCompleted": true], ["Name": "Дописать приложение", "isCompleted": false], ["Name": "Отметить", "isCompleted": false]]
+
+var ToDoItems: [[String: Any]] = [["Name": "a", "isCompleted": true, "Description": "description"], ["Name": "b", "isCompleted": false, "Description": "description"], ["Name": "c", "isCompleted": false, "Description": "description"]]
+
+
+
 
 func addItem(nameItem: String, isCompleted: Bool = false) {   ///adds new item to the table///
-    ToDoItems.append(["Name": nameItem, "isCompleted": false ])
+    ToDoItems.append(["Name": nameItem, "isCompleted": false, "Description": ""])
     saveData()
 }
+
 
 func removeItem(at index: Int) {  ///removes an item from the table///
     ToDoItems.remove(at: index)
@@ -34,6 +40,11 @@ func changeState(at item:  Int) -> Bool {
     return (ToDoItems[item]["isCompleted"] as! Bool)
 }
 
+func setDescription(_ text: String, atItem item: Int) {
+    ToDoItems[item]["Description"] = text
+    saveData()
+}
+
 func saveData() {  ///saves the data in the memory///
     UserDefaults.standard.set(ToDoItems, forKey: "ToDoDataKey")
     UserDefaults.standard.synchronize()
@@ -46,5 +57,6 @@ func loadData() {  ///loads the data from the memory///
     } else {
         ToDoItems = []
     }
-    
 }
+
+  

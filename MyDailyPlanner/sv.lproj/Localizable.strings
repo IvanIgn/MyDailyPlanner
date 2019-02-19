@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  MyDailyPlanner
+
+  Created by Ivan Ignatkov on 2019-02-18.
+  Copyright © 2019 TechCompetence. All rights reserved.
+*/
+
+
+"Create new item" = "Skapa ny anteckning";
+
+"New item name" = "Ange nytt namn";
+
+"Create" = "Skapa";
+
+"Cancel" = "Avbryta";

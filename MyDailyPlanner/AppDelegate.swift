@@ -8,6 +8,7 @@
 
 /// calls functions when application starts ///
 
+import Foundation
 import UIKit
 
 @UIApplicationMain

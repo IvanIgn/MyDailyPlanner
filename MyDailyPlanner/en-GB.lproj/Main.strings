@@ -1,0 +1,21 @@
+
+/* Class = "UIButton"; normalTitle = "Quit"; ObjectID = "9tT-Al-PME"; */
+"9tT-Al-PME.normalTitle" = "Quit";
+
+/* Class = "UINavigationItem"; title = "ToDo items"; ObjectID = "AuZ-x4-1l2"; */
+"AuZ-x4-1l2.title" = "Notes";
+
+/* Class = "UILabel"; text = "textTitle"; ObjectID = "Z7d-ob-yzm"; */
+"Z7d-ob-yzm.text" = "textTitle";
+
+/* Class = "UIButton"; normalTitle = "Start"; ObjectID = "d38-H8-7gL"; */
+"d38-H8-7gL.normalTitle" = "Start";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "hKt-l4-Q4I"; */
+"hKt-l4-Q4I.normalTitle" = "Save";
+
+/* Class = "UITextView"; text = "Type something here..."; ObjectID = "lFl-jt-U0h"; */
+"lFl-jt-U0h.text" = "Type something here...";
+
+/* Class = "UIButton"; normalTitle = "Language"; ObjectID = "s9v-O3-EH1"; */
+"s9v-O3-EH1.normalTitle" = "Language";
