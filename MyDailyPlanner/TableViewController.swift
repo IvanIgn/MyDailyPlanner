@@ -149,6 +149,7 @@ class TableViewController: UITableViewController {
             cell.statusImg.alpha = 0.4
             
             
+            
         }else{
             cell.nameLbl.alpha = 1
             cell.statusImg.alpha = 1
@@ -188,7 +189,7 @@ class TableViewController: UITableViewController {
             let nameTxt = currentItem["Name"] as? String ?? ""
             var descriptionTxt = currentItem["Description"] as? String ?? ""
             if descriptionTxt == "" {
-                descriptionTxt = "Type something here..."
+                descriptionTxt = /*"Type something here..."*/ ""
             }
             destinationVC.initData(name: nameTxt, text: descriptionTxt, item: index)
         }

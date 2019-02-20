@@ -66,7 +66,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
  
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
     
-        if noteText.text == "Type something here..." {
+        if noteText.text == /*"Type something here..."*/ "" {
             noteText.text = ""
             noteText.textColor = UIColor.black
             noteText.font = UIFont(name: "Times New Roman", size: 19)

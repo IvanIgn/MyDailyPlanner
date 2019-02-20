@@ -10,7 +10,6 @@
 		01D7224D22133F390020255A /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D7224C22133F390020255A /* MyCell.swift */; };
 		030F922A2202058100D938F3 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030F92292202058100D938F3 /* TextViewController.swift */; };
 		032E8AB822012FEF00C972D9 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032E8AB722012FEF00C972D9 /* MenuViewController.swift */; };
-		035539A82218C13C00120943 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035539A72218C13C00120943 /* LanguageViewController.swift */; };
 		03D51290221A1FB500716C94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03D5128E221A1FB500716C94 /* Localizable.strings */; };
 		03DBC31921E81EE600D7C1FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DBC31821E81EE600D7C1FA /* AppDelegate.swift */; };
 		03DBC31E21E81EE600D7C1FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03DBC31C21E81EE600D7C1FA /* Main.storyboard */; };
@@ -24,7 +23,6 @@
 		01D7224C22133F390020255A /* MyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		030F92292202058100D938F3 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		032E8AB722012FEF00C972D9 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		035539A72218C13C00120943 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		03D5128A221A1EF200716C94 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		03D5128B221A1EF200716C94 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		03D5128C221A1EFC00716C94 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 				032E8AB722012FEF00C972D9 /* MenuViewController.swift */,
 				030F92292202058100D938F3 /* TextViewController.swift */,
 				03DBC31C21E81EE600D7C1FA /* Main.storyboard */,
-				035539A72218C13C00120943 /* LanguageViewController.swift */,
 				03DBC32C21E8222300D7C1FA /* Model.swift */,
 				03DBC31F21E81EE800D7C1FA /* Assets.xcassets */,
 				03DBC32121E81EE800D7C1FA /* LaunchScreen.storyboard */,
@@ -176,7 +173,6 @@
 				03DBC31921E81EE600D7C1FA /* AppDelegate.swift in Sources */,
 				01D7224D22133F390020255A /* MyCell.swift in Sources */,
 				03DBC32D21E8222300D7C1FA /* Model.swift in Sources */,
-				035539A82218C13C00120943 /* LanguageViewController.swift in Sources */,
 				032E8AB822012FEF00C972D9 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
