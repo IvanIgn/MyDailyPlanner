@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         loadData()
         
+        requestForNotification()
+        
         return true
     }
 

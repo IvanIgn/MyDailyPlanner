@@ -27,24 +27,33 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="46.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urV-6M-x37">
-                                            <rect key="frame" x="60" y="3" width="263" height="40.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urV-6M-x37">
+                                            <rect key="frame" x="60" y="3" width="263" height="41"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="2g0-YA-HJ1">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="2g0-YA-HJ1">
                                             <rect key="frame" x="16" y="10" width="27" height="27"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vV5-Ce-1Ju">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vV5-Ce-1Ju">
                                             <rect key="frame" x="340" y="10" width="27" height="27"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" image="arrow"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="2g0-YA-HJ1" firstAttribute="top" secondItem="vV5-Ce-1Ju" secondAttribute="top" id="36o-Gy-RFB"/>
+                                        <constraint firstItem="2g0-YA-HJ1" firstAttribute="centerY" secondItem="urV-6M-x37" secondAttribute="centerY" id="BJx-W8-CFH"/>
+                                        <constraint firstItem="2g0-YA-HJ1" firstAttribute="centerY" secondItem="47s-Li-geT" secondAttribute="centerY" id="DYb-LG-KtQ"/>
+                                        <constraint firstItem="2g0-YA-HJ1" firstAttribute="bottom" secondItem="vV5-Ce-1Ju" secondAttribute="bottom" id="GQi-fK-5sg"/>
+                                        <constraint firstItem="urV-6M-x37" firstAttribute="top" secondItem="47s-Li-geT" secondAttribute="topMargin" constant="-8" id="XFv-Dn-2ML"/>
+                                        <constraint firstItem="2g0-YA-HJ1" firstAttribute="leading" secondItem="47s-Li-geT" secondAttribute="leadingMargin" id="Z9y-tD-H2N"/>
+                                        <constraint firstItem="vV5-Ce-1Ju" firstAttribute="leading" secondItem="urV-6M-x37" secondAttribute="trailing" constant="17" id="c8Y-97-8dQ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="2g0-YA-HJ1" secondAttribute="bottom" constant="-1" id="gzx-WJ-NBf"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vV5-Ce-1Ju" secondAttribute="trailing" constant="-8" id="ibp-Fu-3QI"/>
+                                        <constraint firstItem="urV-6M-x37" firstAttribute="leading" secondItem="2g0-YA-HJ1" secondAttribute="trailing" constant="17" id="s8u-ru-ee3"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLbl" destination="urV-6M-x37" id="hLg-Xf-0xk"/>
@@ -123,7 +132,7 @@
                         <viewLayoutGuide key="safeArea" id="5yD-xF-Wav"/>
                     </view>
                     <navigationItem key="navigationItem" id="MfE-LK-q1t">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="vPV-R0-Dbw">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="vPV-R0-Dbw">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hKt-l4-Q4I">
                                 <rect key="frame" x="319" y="5" width="40" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -53,9 +53,10 @@ class TableViewController: UITableViewController {
     
         let alertAction2 = UIAlertAction(title: alertTitle3, style: .cancel) { (alert) in
             let newItem = alertController.textFields![0].text
-            addItem(nameItem: newItem!)
-            self.tableView.reloadData()
-            // add new text
+            if newItem != "" {
+                addItem(nameItem: newItem!)
+                self.tableView.reloadData()
+            }
         }
         
         let alertAction1 = UIAlertAction(title: alertTitle2, style: .destructive) { (alert) in
@@ -68,7 +69,7 @@ class TableViewController: UITableViewController {
        present(alertController, animated: true, completion: nil)
     }
     
-    
+   
 
     // MARK: - Table view data source
 
@@ -103,13 +104,15 @@ class TableViewController: UITableViewController {
         if tableView.isEditing {
              cell.nameLbl.alpha = 0.4
              cell.statusImg.alpha = 0.4
-
+             cell.nextBtn.isEnabled = false
+             //cell.nextBtn.isHidden = true
 
         }else{
             cell.nameLbl.alpha = 1
             cell.statusImg.alpha = 1
-
-
+            cell.nextBtn.isEnabled = true
+           // cell.nextBtn.isHidden = false
+        
         }
         cell.nextBtn.tag = indexPath.row
         cell.nextBtn.addTarget(self, action: #selector(self.segue(sender:)), for: UIControl.Event.touchUpInside)
@@ -137,22 +140,26 @@ class TableViewController: UITableViewController {
         }
     }
     
-
+   
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true )
         
         let cell = tableView.cellForRow(at: indexPath) as! MyCell
+         cell.nextBtn.tag = indexPath.row
         
         
         if tableView.isEditing {
             cell.nameLbl.alpha = 0.4
             cell.statusImg.alpha = 0.4
-            
+            cell.nextBtn.isEnabled = false
+            //cell.nextBtn.isHidden = true
             
             
         }else{
             cell.nameLbl.alpha = 1
             cell.statusImg.alpha = 1
+            cell.nextBtn.isEnabled = true
+            //cell.nextBtn.isHidden = false
             if changeState(at: indexPath.row ) {
                 cell.statusImg.image = #imageLiteral(resourceName: "check")
             } else {
@@ -163,6 +170,8 @@ class TableViewController: UITableViewController {
         
     }
     
+
+
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
